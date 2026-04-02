@@ -4,7 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mamakboy | Malaysian Street Food Adelaide</title>
+
   <style>
+    /* =========================================================
+       1. ROOT COLORS / GLOBAL VARIABLES
+       - Easy place to change theme colors later
+       ========================================================= */
     :root {
       --bg: #f6f4ee;
       --surface: #fffdf8;
@@ -23,8 +28,14 @@
       --radius-md: 18px;
     }
 
+    /* =========================================================
+       2. GLOBAL RESET / BASE STYLE
+       - Controls body, spacing, default images, container
+       ========================================================= */
     * { box-sizing: border-box; }
+
     html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
@@ -33,13 +44,78 @@
       overflow-x: hidden;
     }
 
-    img { max-width: 100%; display: block; }
+    img {
+      max-width: 100%;
+      display: block;
+    }
 
     .container {
       width: min(1180px, calc(100% - 40px));
       margin: 0 auto;
     }
 
+    /* =========================================================
+       3. REUSABLE BUTTONS / SMALL UI ELEMENTS
+       - You can reuse these anywhere in the website later
+       ========================================================= */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      border-radius: 999px;
+      padding: 15px 26px;
+      font-weight: 800;
+      transition: 0.25s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--green-deep);
+      color: white;
+      box-shadow: var(--shadow);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--green-deep);
+      border: 2px solid var(--green-deep);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--green-soft);
+      color: var(--green-deep);
+      padding: 14px 22px;
+      border-radius: 999px;
+      font-weight: 800;
+      margin-bottom: 28px;
+    }
+
+    .pill {
+      display: inline-block;
+      margin-top: 14px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--surface-soft);
+      color: var(--green-deep);
+      font-weight: 800;
+      font-size: 0.95rem;
+    }
+
+    /* =========================================================
+       4. HEADER / NAVBAR
+       - Logo
+       - Navigation links
+       - Top action button
+       ========================================================= */
     .topbar {
       position: sticky;
       top: 0;
@@ -98,35 +174,17 @@
       color: var(--green-deep);
     }
 
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      border: none;
-      cursor: pointer;
-      border-radius: 999px;
-      padding: 15px 26px;
-      font-weight: 800;
-      transition: 0.25s ease;
+    .nav-links a.btn-primary {
+      color: #ffffff;
     }
 
-    .btn:hover {
-      transform: translateY(-2px);
-    }
-
-    .btn-primary {
-      background: var(--green-deep);
-      color: white;
-      box-shadow: var(--shadow);
-    }
-
-    .btn-secondary {
-      background: transparent;
-      color: var(--green-deep);
-      border: 2px solid var(--green-deep);
-    }
-
+    /* =========================================================
+       5. HERO SECTION
+       - Main headline
+       - Main intro text
+       - Hero image
+       - Main call-to-action buttons
+       ========================================================= */
     .hero {
       padding: 48px 0 36px;
     }
@@ -139,21 +197,9 @@
       min-height: calc(100vh - 120px);
     }
 
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      background: var(--green-soft);
-      color: var(--green-deep);
-      padding: 14px 22px;
-      border-radius: 999px;
-      font-weight: 800;
-      margin-bottom: 28px;
-    }
-
     h1 {
       margin: 0 0 18px;
-      font-size: clamp(2.9rem, 6vw, 5.5rem);
+      font-size: clamp(2rem, 4vw, 3.5rem);
       line-height: 0.98;
       letter-spacing: -2px;
       color: var(--green-deep);
@@ -222,6 +268,10 @@
       box-shadow: var(--shadow);
     }
 
+    /* =========================================================
+       6. GENERAL SECTION LAYOUT
+       - Shared section spacing and titles
+       ========================================================= */
     .section {
       padding: 42px 0;
     }
@@ -249,6 +299,11 @@
       line-height: 1.7;
     }
 
+    /* =========================================================
+       7. ABOUT / STORY / SHOWCASE SECTION
+       - Left information panel
+       - Right image/reference panel
+       ========================================================= */
     .showcase {
       display: grid;
       grid-template-columns: 1.08fr 0.92fr;
@@ -274,6 +329,30 @@
       object-fit: cover;
     }
 
+    .info-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .info-item {
+      background: var(--surface-soft);
+      border-radius: 20px;
+      padding: 18px;
+    }
+
+    .info-item strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--green-deep);
+    }
+
+    /* =========================================================
+       8. MENU SECTION
+       - Menu cards
+       - Price pills
+       - Food icon boxes
+       ========================================================= */
     .menu-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -313,35 +392,10 @@
       line-height: 1.65;
     }
 
-    .pill {
-      display: inline-block;
-      margin-top: 14px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: var(--surface-soft);
-      color: var(--green-deep);
-      font-weight: 800;
-      font-size: 0.95rem;
-    }
-
-    .info-list {
-      display: grid;
-      gap: 14px;
-      margin-top: 22px;
-    }
-
-    .info-item {
-      background: var(--surface-soft);
-      border-radius: 20px;
-      padding: 18px;
-    }
-
-    .info-item strong {
-      display: block;
-      margin-bottom: 6px;
-      color: var(--green-deep);
-    }
-
+    /* =========================================================
+       9. WHY CHOOSE US / VIBE SECTION
+       - Explains brand personality and design direction
+       ========================================================= */
     .vibe-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -362,6 +416,10 @@
       color: var(--green-deep);
     }
 
+    /* =========================================================
+       10. CTA SECTION
+       - Big call-to-action block near bottom of page
+       ========================================================= */
     .cta {
       padding: 18px 0 70px;
     }
@@ -391,6 +449,10 @@
       max-width: 580px;
     }
 
+    /* =========================================================
+       11. FOOTER SECTION
+       - Bottom business info
+       ========================================================= */
     footer {
       padding: 0 0 34px;
     }
@@ -405,6 +467,11 @@
       color: var(--text-soft);
     }
 
+    /* =========================================================
+       12. RESPONSIVE DESIGN
+       - Tablet and mobile layout
+       - Important when you add more sections later
+       ========================================================= */
     @media (max-width: 1024px) {
       .hero-grid,
       .showcase,
@@ -457,10 +524,17 @@
   </style>
 </head>
 <body>
+
+  <!-- =======================================================
+       HEADER / NAVBAR
+       - Edit logo here
+       - Edit menu links here
+       - Edit top button here
+       ======================================================= -->
   <header class="topbar">
     <div class="container nav">
       <a href="#home" class="brand">
-        <img src="/mnt/data/images.jpg" alt="Mamakboy logo" />
+        <img src="mnt/data/images.jpg" alt="Mamakboy logo" />
         <span>Mamakboy</span>
       </a>
 
@@ -473,14 +547,22 @@
   </header>
 
   <main id="home">
+
+    <!-- =====================================================
+         HERO SECTION
+         - Main heading
+         - Intro paragraph
+         - Action buttons
+         - Main restaurant image
+         ===================================================== -->
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-copy">
           <div class="eyebrow">Uber Eats ★★★★★ (4.9)</div>
-          <h1>Bite into Malaysian street food happiness</h1>
+            <h1>Taste the Heat of Malaysian Street Food</h1>
           <p>
-            Welcome to Mamakboy, a modern Malaysian takeaway in Adelaide where playful branding,
-            bold flavours, and an easy ordering experience come together in one clean digital home.
+            Welcome to Mamakboy — your spot for authentic Malaysian street food in Adelaide,
+            where we serve up bold flavours, fresh dishes, and all your favourites every day.
           </p>
 
           <div class="hero-actions">
@@ -505,12 +587,17 @@
         </div>
 
         <div class="hero-card">
-          <img class="main-image" src="/mnt/data/mamakboy11.jpeg" alt="Mamakboy restaurant front" />
-          <div class="sticker">Funny brand. Bold food.</div>
+          <img class="main-image" src="mnt/data/Restaurant_site.jpg" alt="Mamakboy restaurant front" />
         </div>
       </div>
     </section>
 
+    <!-- =====================================================
+         ABOUT / STORY SECTION
+         - Restaurant concept text
+         - Brand explanation
+         - Optional reference image
+         ===================================================== -->
     <section class="section" id="news">
       <div class="container">
         <div class="showcase">
@@ -545,6 +632,11 @@
       </div>
     </section>
 
+    <!-- =====================================================
+         MENU SECTION
+         - Each article = 1 menu block
+         - Easy to duplicate later
+         ===================================================== -->
     <section class="section" id="menu">
       <div class="container">
         <div class="section-head">
@@ -588,6 +680,11 @@
       </div>
     </section>
 
+    <!-- =====================================================
+         BRAND / WHY THIS FITS SECTION
+         - Explain personality
+         - Explain design decisions
+         ===================================================== -->
     <section class="section">
       <div class="container">
         <div class="section-head">
@@ -616,6 +713,11 @@
       </div>
     </section>
 
+    <!-- =====================================================
+         CALL TO ACTION SECTION
+         - Good place for online order button later
+         - Or contact / booking / reservation section
+         ===================================================== -->
     <section class="cta" id="visit">
       <div class="container">
         <div class="cta-box">
@@ -631,6 +733,12 @@
     </section>
   </main>
 
+  <!-- =======================================================
+       FOOTER SECTION
+       - Business name
+       - Small description
+       - Can later add address / social media / phone
+       ======================================================= -->
   <footer>
     <div class="container footer-box">
       <div><strong style="color: var(--green-deep);">Mamakboy</strong> — Malaysian Street Food, Adelaide</div>
